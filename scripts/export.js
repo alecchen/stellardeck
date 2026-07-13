@@ -373,8 +373,15 @@ async function captureInSession(session, relativePath, options) {
 
   // Re-inject html2canvas after each navigation (page context reset).
   // Skip for --validate mode since we don't capture images.
+  // Prefer the vendored local copy (no network); fall back to the CDN if
+  // it's missing. The CDN alone is flaky in some networks and kills the export.
   if (!skipCapture) {
-    await page.addScriptTag({ url: CDN.HTML2CANVAS });
+    const localH2C = path.join(PROJECT_DIR, 'vendor', 'html2canvas.min.js');
+    if (fs.existsSync(localH2C)) {
+      await page.addScriptTag({ path: localH2C });
+    } else {
+      await page.addScriptTag({ url: CDN.HTML2CANVAS });
+    }
     await page.waitForFunction(() => typeof html2canvas !== 'undefined', { timeout: 10000 });
   }
 
