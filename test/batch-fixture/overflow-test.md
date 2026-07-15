@@ -20,3 +20,4 @@ This fits fine.
 - Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem
 - Ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam
 - Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate
+- `unbreakable_inline_code_token_that_cannot_wrap_and_must_overflow_the_slide_frame_horizontally_no_matter_what_size`
