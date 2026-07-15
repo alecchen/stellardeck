@@ -269,7 +269,16 @@ async function resolveInput(input) {
   }
   const resolved = path.isAbsolute(input) ? input : path.resolve(PROJECT_DIR, input);
   if (!fs.existsSync(resolved)) throw new Error(`File not found: ${input}`);
-  return { path: resolved, relative: path.relative(PROJECT_DIR, resolved), cleanup: () => {} };
+  return { path: resolved, relative: toServerPath(resolved), cleanup: () => {} };
+}
+
+// Map an absolute file path to the URL path the dev server can serve.
+// Files inside the repo use plain relative paths; files outside use the
+// /@fs/<abs-path> route (see scripts/dev-server.py) — path.relative would
+// produce ../ segments that escape the server root and 404.
+function toServerPath(absPath) {
+  const relative = path.relative(PROJECT_DIR, absPath);
+  return relative.startsWith('..') ? '/@fs' + absPath : relative;
 }
 
 // ── Directory walk ───────────────────────────────────────────
@@ -634,7 +643,7 @@ async function runBatch(opts, onProgress = null) {
   try {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      const relInput = path.relative(PROJECT_DIR, file);
+      const relInput = toServerPath(file);
       const relToBase = path.relative(inputDir, file);
       const outputPath = buildBatchOutputPath(opts.output, relToBase, opts.format);
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -703,7 +712,7 @@ async function runPreview(opts) {
   const { input, port, theme, scheme, autoflow } = opts;
   const resolved = path.isAbsolute(input) ? input : path.resolve(process.cwd(), input);
   if (!fs.existsSync(resolved)) throw new CLIError(`File not found: ${input}`);
-  const relative = path.relative(PROJECT_DIR, resolved);
+  const relative = toServerPath(resolved);
 
   // Start server
   let server = null;
@@ -864,6 +873,7 @@ module.exports = {
   walkMarkdownFiles,
   buildBatchOutputPath,
   resolveInput,
+  toServerPath,
   captureSlides,
   captureInSession,
   startSession,

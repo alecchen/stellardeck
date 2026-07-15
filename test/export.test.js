@@ -14,10 +14,12 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
+const os = require('os');
 const {
   parseSlideRange,
   walkMarkdownFiles,
   buildBatchOutputPath,
+  toServerPath,
   captureSlides,
   run,
   runBatch,
@@ -182,6 +184,31 @@ test('Deep nesting preserved', () => {
     buildBatchOutputPath('dist', 'a/b/c/talk.md', 'pdf'),
     path.join('dist', 'a', 'b', 'c', 'talk.pdf')
   );
+});
+
+// ─────────────────────────────────────────────────────────────
+// Unit tests — toServerPath
+// ─────────────────────────────────────────────────────────────
+
+console.log('\n── toServerPath ──');
+
+test('file inside repo → plain relative path', () => {
+  assert.strictEqual(
+    toServerPath(path.join(PROJECT_DIR, 'test/smoke-test.md')),
+    path.join('test', 'smoke-test.md')
+  );
+});
+
+test('file outside repo → /@fs/<abs-path>', () => {
+  assert.strictEqual(
+    toServerPath('/somewhere/else/deck.md'),
+    '/@fs/somewhere/else/deck.md'
+  );
+});
+
+test('sibling dir of repo → /@fs (relative would start with ..)', () => {
+  const sibling = path.join(path.dirname(PROJECT_DIR), 'other-decks', 'talk.md');
+  assert.strictEqual(toServerPath(sibling), '/@fs' + sibling);
 });
 
 // ─────────────────────────────────────────────────────────────
@@ -427,6 +454,35 @@ if (!SKIP_INTEGRATION) {
     // Sanity check: should complete in under 15s for 3 slides (capture alone
     // takes ~3-5s per slide at scale 2, much longer for full deck)
     assert.ok(validateMs < 15000, `validate took ${validateMs}ms`);
+  });
+
+  console.log('\n── External deck — outside repo (integration) ──');
+
+  // Regression: decks living outside PROJECT_DIR used to produce ../ paths
+  // that escaped the dev-server root (navigation timeout). They are now
+  // served via the /@fs/ route, including sibling-dir asset refs.
+  const extBase = fs.mkdtempSync(path.join(os.tmpdir(), 'stellar-ext-'));
+  const extDeck = path.join(extBase, 'talk', 'deck.md');
+
+  test('deck outside repo exports, ../assets ref resolves', async () => {
+    fs.mkdirSync(path.join(extBase, 'talk'), { recursive: true });
+    fs.mkdirSync(path.join(extBase, 'assets'), { recursive: true });
+    // 1×1 red PNG
+    fs.writeFileSync(path.join(extBase, 'assets', 'pix.png'), Buffer.from(
+      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFAAH/q842iQAAAABJRU5ErkJggg==',
+      'base64'));
+    fs.writeFileSync(extDeck, '# External deck\n\n---\n\n![inline](../assets/pix.png)\n\nSlide two\n');
+    const result = await run({
+      input: extDeck, output: path.join(TMP, 'external.pdf'), format: 'pdf',
+      port: 3032, scale: 1, slides: null,
+      theme: null, scheme: null, autoflow: false,
+    });
+    assert.strictEqual(result.slides, 2);
+    assert.ok(fs.existsSync(path.join(TMP, 'external.pdf')));
+    const missing = result.warnings.filter(w => w.type === 'missing-image');
+    assert.strictEqual(missing.length, 0,
+      `sibling asset did not resolve: ${missing.map(w => w.url).join('; ')}`);
+    fs.rmSync(extBase, { recursive: true, force: true });
   });
 
   console.log('\n── Session reuse (integration) ──');
