@@ -28,18 +28,18 @@ test('resolves multiple ../ levels', () => {
 });
 
 test('resolves ./ prefix', () => {
-  const result = resolveRelativePath('/Users/peas/project', './assets/img.webp');
-  assert.strictEqual(result, '/Users/peas/project/assets/img.webp');
+  const result = resolveRelativePath('/Users/alice/project', './assets/img.webp');
+  assert.strictEqual(result, '/Users/alice/project/assets/img.webp');
 });
 
 test('resolves plain relative path', () => {
-  const result = resolveRelativePath('/Users/peas/project', 'img.webp');
-  assert.strictEqual(result, '/Users/peas/project/img.webp');
+  const result = resolveRelativePath('/Users/alice/project', 'img.webp');
+  assert.strictEqual(result, '/Users/alice/project/img.webp');
 });
 
 test('handles trailing slash in baseDir', () => {
-  const result = resolveRelativePath('/Users/peas/project/', '../assets/img.webp');
-  assert.strictEqual(result, '/Users/peas/assets/img.webp');
+  const result = resolveRelativePath('/Users/alice/project/', '../assets/img.webp');
+  assert.strictEqual(result, '/Users/alice/assets/img.webp');
 });
 
 test('handles absolute path (no resolution needed)', () => {
@@ -59,18 +59,18 @@ test('handles absolute path (no resolution needed)', () => {
 console.log('\n── convertFileSrc (encoding only — scheme is shell-side) ──');
 
 test('does NOT encode slashes as %2F', () => {
-  const result = convertFileSrc('/Users/peas/file.webp');
+  const result = convertFileSrc('/Users/alice/file.webp');
   assert.ok(!result.includes('%2F'), `should not contain %2F: ${result}`);
 });
 
 test('encodes spaces in path segments', () => {
-  const result = convertFileSrc('/Users/peas/my folder/img.webp');
+  const result = convertFileSrc('/Users/alice/my folder/img.webp');
   assert.ok(result.includes('my%20folder'), `spaces should be encoded: ${result}`);
   assert.ok(!result.includes('%2F'), `slashes should NOT be encoded: ${result}`);
 });
 
 test('encodes special characters in filenames', () => {
-  const result = convertFileSrc('/Users/peas/café.webp');
+  const result = convertFileSrc('/Users/alice/café.webp');
   assert.ok(result.includes('caf%C3%A9'), `special chars should be encoded: ${result}`);
 });
 

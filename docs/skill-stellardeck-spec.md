@@ -88,7 +88,7 @@ To improve the SOURCE TEXT (for a better deck next time):
 
 ### Scoring benchmarks
 
-Based on analysis of 331 real decks (6,930 slides) from presentations-paulo.
+Based on analysis of 331 real conference decks (6,930 slides) from the author's private archive.
 
 | Dimension | Points | Good | Paulo's actual |
 |-----------|--------|------|----------------|

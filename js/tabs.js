@@ -378,7 +378,7 @@ function sliceSlideMarkdown(slideIndex) {
   return slides[slideIndex] != null ? slides[slideIndex].trim() : null;
 }
 
-// Make `/Users/peas/foo/bar/assets` readable when fileDir is .../foo/bar/
+// Make `/Users/alice/foo/bar/assets` readable when fileDir is .../foo/bar/
 // → "./assets" if inside fileDir; "../shared" if one level up; absolute otherwise.
 function shortenPath(absDir, fileDir) {
   if (!fileDir) return absDir;
