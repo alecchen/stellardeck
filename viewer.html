@@ -77,15 +77,17 @@
     <div class="reveal">
       <div class="slides" id="slides"></div>
     </div>
-    <!-- Shown only when body.no-deck is set. Sidebar's empty Decks
-         panel hosts the actual recents/drop/open affordances; this
-         is just a quiet placeholder so the main pane isn't blank. -->
-    <div id="empty-slide-placeholder" aria-hidden="true">
+    <!-- Shown only when body.no-deck is set. Hydrated (button wiring +
+         recents list) by js/tabs.js::hydrateEmptyPlaceholder, which runs
+         alongside the sidebar's empty Decks panel — same handlers. -->
+    <div id="empty-slide-placeholder">
       <div class="esp-card">
         <img class="esp-logo" src="assets/brand/stellardeck-simplified-min.svg" width="48" height="48" alt="">
         <h2>No deck open</h2>
-        <p>Drop a <code>.md</code> anywhere in the window, pick one in the sidebar, or press <kbd>⌘O</kbd> to open.</p>
-        <p class="esp-hint">Press <kbd>⌘P</kbd> for recent decks.</p>
+        <button id="esp-open-btn" class="esp-open-btn">Open deck…</button>
+        <p>or drop a <code>.md</code> anywhere in the window</p>
+        <div class="esp-recent" id="esp-recent"></div>
+        <p class="esp-hint"><kbd>⌘O</kbd> open a file · <kbd>⌘P</kbd> recent decks</p>
       </div>
     </div>
   </div>

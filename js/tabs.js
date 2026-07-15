@@ -148,14 +148,7 @@ function renderEmptyDecksPanel(bar) {
   `;
   bar.appendChild(empty);
 
-  empty.querySelector('[data-action="open"]').addEventListener('click', async () => {
-    if (IS_DESKTOP) {
-      const f = await desktopInvoke('open_file_dialog', { currentDir: null });
-      if (f && window._loadFileFromMenu) await window._loadFileFromMenu(f);
-    } else if (window._showBrowserPicker) {
-      window._showBrowserPicker();
-    }
-  });
+  empty.querySelector('[data-action="open"]').addEventListener('click', openDeckDialog);
 
   const list = empty.querySelector('#sb-recent-list');
   if (IS_DESKTOP) {
@@ -166,6 +159,35 @@ function renderEmptyDecksPanel(bar) {
     });
   } else {
     list.innerHTML = '<div class="sb-empty-state">Drag a <code>.md</code> file to start.</div>';
+  }
+
+  hydrateEmptyPlaceholder();
+}
+
+async function openDeckDialog() {
+  if (IS_DESKTOP) {
+    const f = await desktopInvoke('open_file_dialog', { currentDir: null });
+    if (f && window._loadFileFromMenu) await window._loadFileFromMenu(f);
+  } else if (window._showBrowserPicker) {
+    window._showBrowserPicker();
+  }
+}
+
+// The slide-area placeholder (viewer.html #empty-slide-placeholder) mirrors
+// the sidebar's affordances where the eye actually lands: a real Open
+// button + clickable recents, not just keyboard-shortcut prose.
+function hydrateEmptyPlaceholder() {
+  const btn = document.getElementById('esp-open-btn');
+  const recentEl = document.getElementById('esp-recent');
+  if (!btn || !recentEl) return;
+  if (!btn._wired) {
+    btn._wired = true;
+    btn.addEventListener('click', openDeckDialog);
+  }
+  if (IS_DESKTOP) {
+    desktopInvoke('get_recent_files').then(files => {
+      renderRecentList(recentEl, (files || []).slice(0, 5));
+    }).catch(() => { recentEl.innerHTML = ''; });
   }
 }
 
@@ -178,9 +200,10 @@ function renderRecentList(container, recent) {
   recent.forEach(filePath => {
     const name = filePath.split('/').pop();
     const dir = filePath.substring(0, filePath.lastIndexOf('/'));
-    const shortDir = dir.replace(/^\/Users\/[^/]+/, '~');
+    const shortDir = elideDirMiddle(dir.replace(/^\/Users\/[^/]+/, '~'));
     const el = document.createElement('button');
     el.className = 'sb-recent-item';
+    el.title = filePath;
     el.innerHTML = `
       <span class="sb-recent-name">${escapeHtml(name)}</span>
       <span class="sb-recent-path">${escapeHtml(shortDir)}</span>
@@ -194,6 +217,20 @@ function renderRecentList(container, recent) {
     });
     container.appendChild(el);
   });
+}
+
+// Keep the meaningful ends of a directory path: the `~/` root and the last
+// segment(s). The old CSS `direction: rtl` ellipsis rendered the leading
+// `~/` at the RIGHT end of the string ("…ders-hipsters/~"), which read as
+// a broken path.
+function elideDirMiddle(dir, max = 36) {
+  if (dir.length <= max) return dir;
+  const segs = dir.split('/');
+  let tail = segs.pop();
+  while (segs.length > 1 && (segs[0] + '/…/' + tail).length + segs[segs.length - 1].length + 1 <= max) {
+    tail = segs.pop() + '/' + tail;
+  }
+  return segs.length > 1 ? `${segs[0]}/…/${tail}` : dir;
 }
 
 function escapeHtml(s) {
