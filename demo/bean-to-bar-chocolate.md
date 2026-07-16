@@ -10,9 +10,12 @@ autoflow: true
 
 ---
 
-What's in your **chocolate** bar?
+Grab the chocolate bar
+nearest to you.
 
-^Most people never think about this. The answer is surprising.
+Read the **label**.
+
+^Really — a KitKat, whatever's in the drawer. This talk starts there.
 
 ---
 
@@ -22,12 +25,62 @@ Sugar. Vegetable fat.
 Cocoa powder. Vanilla.
 Lecithin. **Flavoring.**
 
-^A typical supermarket bar. 5-10% actual cacao. The rest is filler.
+^A typical supermarket bar. 5-10% actual cacao. Sugar always comes first.
 
 ---
 
-What if someone started
-from the **bean**?
+Chocolate that tastes of everything
+**except cacao.**
+
+^How did we get here? To answer that, rewind three thousand years.
+
+---
+
+#[fit] Rewind
+#[fit] **3,000 years.**
+
+---
+
+![left](images/chocolate/maya-vessel.webp)
+
+The Maya drank their cacao —
+bitter, spiced, **alive with flavor**.
+
+This vessel held chocolate a thousand
+years before the candy bar.
+
+^A real Maya chocolate-drinking vessel (Walters Art Museum, public domain). Cacao was ground, mixed with water and chili, poured from height for foam.
+
+---
+
+For the Maya and the Aztec,
+cacao was **currency**.
+
+A turkey: 100 beans.
+An avocado: 3.
+
+^You could literally spend chocolate. Counterfeiters made fake beans out of clay.
+
+---
+
+Then the 20th century happened.
+
+**Cheap. Sweet. Identical.**
+
+Millions of bars, one flavor.
+
+^Industrial chocolate is an engineering marvel — and a flavor funeral. Heavy roasting hides bean defects; additives standardize everything.
+
+---
+
+We traded **flavor**
+for uniformity.
+
+---
+
+#[fit] Then someone
+#[fit] started over.
+#[fit] From the **bean**.
 
 ---
 
@@ -36,9 +89,9 @@ from the **bean**?
 **Cocoa nibs**: roasted cacao beans,
 cracked and winnowed.
 
-The raw material of real chocolate.
+Two ingredients: cacao and sugar.
 
-^The maker controls every step from here: grinding nibs into paste, conching for hours, tempering, molding. Two ingredients: cacao and sugar.
+^The maker controls every step from here: grinding, conching for hours, tempering, molding.
 
 ---
 
@@ -67,7 +120,7 @@ graph LR
 #[fit] One bean.
 #[fit] **Infinite** flavors.
 
-^ Same cacao variety, different soil, fermentation, roasting → completely different chocolate.
+^ Same cacao variety, different soil, fermentation, roasting → completely different chocolate. This is what industry erased — and craft brought back.
 
 ---
 
@@ -77,27 +130,24 @@ graph LR
 ## Industrial
 - Bulk cacao, commodity markets
 - Heavy roasting hides defects
-- Cocoa butter, vanilla, lecithin added
-- Standardized flavor
+- Additives standardize flavor
 
 :::
 ## Bean to Bar
 - Single-origin, traceable beans
 - Light roast preserves terroir
 - Cacao + sugar. That's it.
-- Unique flavor per batch
 :::
 
 ^ Supermarket bars: 5-10% cacao. Craft bars: 65-80%+.
 
 ---
 
-[.background-color: #3E2723]
-[.header: #DEB887]
+![](images/chocolate/cacao-plantation.webp)
 
-#[fit] Brazilian Makers
+#[fit] **Brazil**
 
-Brazil is the 7th largest cacao producer. Bahia, Para, Espirito Santo.
+^ 7th largest cacao producer — Bahia, Pará, Espírito Santo. For a century Brazil exported beans and imported chocolate. That's changing.
 
 ---
 
@@ -105,11 +155,12 @@ Brazil is the 7th largest cacao producer. Bahia, Para, Espirito Santo.
 
 # Mission Chocolate
 
-Sao Paulo — Arcelia Gallardo
+São Paulo — Arcelia Gallardo trained at Dandelion,
+came to Brazil, and pays farmers **4× market price**.
 
-50+ awards in 5 years. Trained at Dandelion (SF).
-Pays farmers 4x market price.
-Most awarded brand in Brazil.
+Most awarded chocolate brand in the country.
+
+^ 50+ awards in 5 years. She's the proof that making chocolate AT the origin beats shipping beans north.
 
 ---
 
@@ -117,87 +168,43 @@ Most awarded brand in Brazil.
 
 # Luisa Abram
 
-Wild cacao from the Amazon (Purus River).
+**Wild cacao** from the Amazon, foraged
+along the Purus River by ribeirinho families.
 
-Two ingredients: cacao and sugar.
+Two ingredients. Flavors no plantation can copy.
 
----
-
-![](images/chocolate/lasevicius.webp)
-
-# Lasevicius
-
-Sao Paulo — Leo Lasevicius
-
-Former pastry chef turned chocolate maker.
-Multiple international gold awards.
-Known for precision and clean flavors.
+^ Her family bet everything on wild cacao when nobody believed it could work.
 
 ---
 
-![](images/chocolate/raros.webp)
+Over **150 makers** in Brazil today.
 
-# Raros Fazedores de Chocolate
+Lasevicius. Raros. Caza. Odle. Mestiço.
+Nugali. Baiani. Dengo...
 
-Cunha, SP — small-batch, artisan.
+Full list: **beantobarbrasil.com.br**
 
-"Colecao Intensos" series. Bronze at Bean to Bar Brasil.
-Deep focus on single-origin Brazilian cacao.
-
----
-
-# Caza Chocolates
-
-Perdizes, Sao Paulo.
-Cacao from Linhares, Espirito Santo.
-Beans roasted and processed in-house.
-
----
-
-# Odle Chocolate
-
-Minas Gerais — 17+ international awards.
-Tuere cocoa: gold at the Academy of Chocolate Awards (UK).
-
----
-
-# And Many More
-
-Over 150 bean-to-bar makers in Brazil today.
-
-Full list: **beantobarbrasil.com.br/lista-associados**
-
-Mestico, Nugali, Cuore di Cacao, Flanjolo,
-Miroh!, A Pauta Company, Clemens, La Greno,
-ZAAD, Dengo, Baiani, Belvie...
+^ From two pioneers to a movement in one decade. Brazilian makers win gold at the Academy of Chocolate regularly now.
 
 ---
 
 # My Collection
 
-![inline](../assets/paulo-chocolate-collection-1.webp) ![inline](../assets/paulo-chocolate-collection-2.webp)
+![inline](../assets/paulo-chocolate-collection-1.webp) ![inline](../assets/paulo-chocolate-collection-3.webp)
 
-![inline](../assets/paulo-chocolate-collection-3.webp) ![inline](../assets/paulo-chocolate-collection-4.webp)
-
-^ Mission, Luisa Abram, Mestico, Clemens, Conspiracy, Kad Kokoa, Marou, Raros, and more.
-
----
-
-# Awards & Competitions
-
-- **Academy of Chocolate Awards** (London) — the Oscars of craft chocolate
-- **International Chocolate Awards** — world's largest independent competition
-- **Bean to Bar Brasil** — Brazilian national awards
-
-Brazilian makers win gold regularly at all three.
+^ Mission, Luisa Abram, Mestiço, Clemens, Conspiracy, Kad Kokoa, Marou, Raros, and more. Every bar tastes like a place.
 
 ---
 
 [.background-color: #3E2723]
 [.header: #DEB887]
 
-# Thank You
+# Your turn
 
-**From bean to bar, every step matters.**
+Next bar you pick up, **read the label**.
+
+If sugar comes first, put it back.
 
 beantobarbrasil.com.br
+
+^ From bean to bar, every step matters — and it starts with what you buy.
