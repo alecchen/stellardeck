@@ -34,9 +34,25 @@ Six example decks you can navigate and edit live — right in your browser:
 
 ## Quick start
 
+**Desktop app (macOS, Apple Silicon):** download the `.dmg` from the [latest release](https://github.com/peas/stellardeck/releases/latest), drag to Applications, drop a `.md` into the window. First launch: right-click → Open (not code-signed yet).
+
+**CLI:**
+
+```bash
+npm install -g stellardeck
+npx playwright install chromium   # one-time: the headless renderer
+stellardeck deck.md               # → deck.pdf
+stellardeck --preview deck.md     # live preview in the browser
+```
+
+Sample decks (images included): [`stellardeck-demo-decks.zip`](https://github.com/peas/stellardeck/releases/latest/download/stellardeck-demo-decks.zip)
+
+**From source:**
+
 ```bash
 git clone https://github.com/peas/stellardeck.git
 cd stellardeck
+npm install
 npm run preview -- demo/getting-started.md
 ```
 

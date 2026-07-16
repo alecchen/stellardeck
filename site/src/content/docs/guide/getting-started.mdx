@@ -6,29 +6,58 @@ description: Your first presentation in 5 minutes.
 import StellarSlide from '../../../components/StellarSlide.astro';
 import StellarDeck from '../../../components/StellarDeck.astro';
 import { decks } from '../../../data/decks';
-import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { LinkCard, CardGrid, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Install
 
-Clone the repository and install dependencies:
+Pick the track that matches how you work. Each one gets you from zero to a rendered deck in under a minute.
 
-```bash
-git clone --branch v0.9.0 https://github.com/peas/stellardeck.git
-cd stellardeck
-npm install
-```
+<Tabs>
+  <TabItem label="Desktop app (macOS)">
+    1. Download [`StellarDeck-0.9.0-arm64.dmg`](https://github.com/peas/stellardeck/releases/latest) (Apple Silicon)
+    2. Drag **StellarDeck** to Applications
+    3. First launch: right-click → **Open** (the app isn't code-signed yet, so macOS asks once)
+    4. Drop any `.md` file into the window — you're presenting
+
+    Arrow keys navigate, `G` opens the grid view, `P` opens presenter mode.
+  </TabItem>
+  <TabItem label="CLI">
+    ```bash
+    npm install -g stellardeck
+    npx playwright install chromium   # one-time: the headless renderer
+    ```
+
+    Then, from any directory:
+
+    ```bash
+    stellardeck deck.md               # → deck.pdf
+    stellardeck --preview deck.md     # live preview in your browser
+    stellardeck --help                # PNG, grid, batch, validate, themes
+    ```
+  </TabItem>
+  <TabItem label="From source">
+    For contributors, or if you want the browser viewer without installing anything globally:
+
+    ```bash
+    git clone --branch v0.9.0 https://github.com/peas/stellardeck.git
+    cd stellardeck
+    npm install
+    npm run preview -- demo/bean-to-bar-chocolate.md
+    ```
+  </TabItem>
+</Tabs>
 
 ## Run a sample
 
-Open one of the included sample decks in your browser:
+Grab the sample decks (three complete presentations, images included) from the release:
 
 ```bash
-npm run preview -- demo/bean-to-bar-chocolate.md
+curl -L -o demo.zip https://github.com/peas/stellardeck/releases/latest/download/stellardeck-demo-decks.zip
+unzip demo.zip
+stellardeck --preview demo/bean-to-bar-chocolate.md
 ```
 
-This starts a local server and opens the deck. Press arrow keys to navigate, `G` for grid view, `P` for presenter mode.
-
-Other samples to try: `demo/hand-balancing.md`, `demo/vibe-coding.md`.
+Or open `demo/bean-to-bar-chocolate.md` in the desktop app. Other samples: `demo/hand-balancing.md`, `demo/vibe-coding.md`.
 
 ## Start from scratch
 
@@ -49,8 +78,10 @@ That's it — `---` separates slides.
 Then preview it:
 
 ```bash
-npm run preview -- my-deck.md
+stellardeck --preview my-deck.md
 ```
+
+(In the desktop app: just drop the file into the window. From a repo checkout: `npm run preview -- my-deck.md`.)
 
 ## Markdown syntax
 

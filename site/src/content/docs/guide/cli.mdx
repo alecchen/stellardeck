@@ -6,9 +6,12 @@ description: Export, preview, validate, and serve decks from the terminal.
 StellarDeck's CLI runs the same rendering engine as the desktop app, headless via Playwright. Use it for exports, live preview, validation, batch processing, or agent workflows.
 
 ```bash
-npm run export -- --help    # full reference
-npm run export -- -h        # same thing
+npm install -g stellardeck
+npx playwright install chromium   # one-time: the headless renderer
+stellardeck --help                # full reference
 ```
+
+Working from a repo checkout instead? Every command below also works as `npm run export -- <args>`.
 
 ## Live Modes
 
@@ -17,22 +20,18 @@ npm run export -- -h        # same thing
 Open a deck in the browser for viewing. Starts a temporary server, opens the default browser, and waits. Ctrl+C stops.
 
 ```bash
-npm run export -- --preview talk.md
+stellardeck --preview talk.md
 ```
 
-There's also a shortcut:
 
-```bash
-npm run preview -- talk.md
-```
 
 ### Serve
 
 Start a dev server and open the viewer in the browser. Watches for file changes. Ctrl+C stops.
 
 ```bash
-npm run export -- --serve
-npm run export -- --serve --port 8080
+stellardeck --serve
+stellardeck --serve --port 8080
 ```
 
 ## Export Formats
@@ -46,25 +45,21 @@ Pick one format per invocation. Default is `--pdf`.
 | `--grid` | Single composite image of all slides | Deck overview, preview cards |
 
 ```bash
-npm run export -- talk.md                          # → talk.pdf (default)
-npm run export -- --pdf talk.md ~/Desktop/talk.pdf # explicit output path
-npm run export -- --png talk.md ~/Desktop/slides   # → ~/Desktop/slides/001.png...
-npm run export -- --grid talk.md overview.png      # → overview.png
-npm run export -- --grid --grid-cols 3 talk.md     # 3-column grid
+stellardeck talk.md                          # → talk.pdf (default)
+stellardeck --pdf talk.md ~/Desktop/talk.pdf # explicit output path
+stellardeck --png talk.md ~/Desktop/slides   # → ~/Desktop/slides/001.png...
+stellardeck --grid talk.md overview.png      # → overview.png
+stellardeck --grid --grid-cols 3 talk.md     # 3-column grid
 ```
 
-The `npm run pdf` shortcut exists for the common case:
 
-```bash
-npm run pdf -- talk.md
-```
 
 ## Validation
 
 Render a deck and collect diagnostics without exporting anything. Returns JSON with slide count and warnings.
 
 ```bash
-npm run export -- --validate talk.md
+stellardeck --validate talk.md
 ```
 
 Output:
@@ -86,8 +81,8 @@ Output:
 List available themes and their color schemes. No browser needed.
 
 ```bash
-npm run export -- --list-themes                # JSON array of theme names
-npm run export -- --list-schemes nordic        # JSON array of schemes for "nordic"
+stellardeck --list-themes                # JSON array of theme names
+stellardeck --list-schemes nordic        # JSON array of schemes for "nordic"
 ```
 
 ## Slide Selection
@@ -95,9 +90,9 @@ npm run export -- --list-schemes nordic        # JSON array of schemes for "nord
 Use `--slides` to export a subset. Accepts ranges, lists, or both:
 
 ```bash
-npm run export -- --slides 1-5 talk.md         # slides 1 through 5
-npm run export -- --slides 1,3,5 talk.md       # slides 1, 3, and 5
-npm run export -- --slides 1-3,7,9 talk.md     # mixed
+stellardeck --slides 1-5 talk.md         # slides 1 through 5
+stellardeck --slides 1,3,5 talk.md       # slides 1, 3, and 5
+stellardeck --slides 1-3,7,9 talk.md     # mixed
 ```
 
 Slides are 1-indexed. Out-of-range slides produce warnings but don't fail the export.
@@ -115,7 +110,7 @@ Override deck settings without editing the markdown:
 | `--port <n>` | `3032` | Dev server port |
 
 ```bash
-npm run export -- --theme ostrich --scheme 2 --autoflow --scale 3 talk.md
+stellardeck --theme ostrich --scheme 2 --autoflow --scale 3 talk.md
 ```
 
 ## Batch Mode
@@ -123,7 +118,7 @@ npm run export -- --theme ostrich --scheme 2 --autoflow --scale 3 talk.md
 Export an entire directory tree. Output mirrors the input structure:
 
 ```bash
-npm run export -- --input-dir ./decks --output ./dist
+stellardeck --input-dir ./decks --output ./dist
 ```
 
 ```
@@ -134,7 +129,7 @@ decks/talks/keynote.md  → dist/talks/keynote.pdf
 Works with any format and inherits all rendering options. The browser and dev server are reused across files.
 
 ```bash
-npm run export -- --input-dir decks --output dist --grid --grid-cols 3
+stellardeck --input-dir decks --output dist --grid --grid-cols 3
 ```
 
 ## Stdin Input
@@ -142,8 +137,8 @@ npm run export -- --input-dir decks --output dist --grid --grid-cols 3
 Pipe markdown by passing `-` as the input:
 
 ```bash
-echo "# Hello\n---\n# World" | npm run export -- --pdf - hello.pdf
-cat draft.md | npm run export -- --png - ./thumbs
+echo "# Hello\n---\n# World" | stellardeck --pdf - hello.pdf
+cat draft.md | stellardeck --png - ./thumbs
 ```
 
 ## JSON Output
@@ -151,7 +146,7 @@ cat draft.md | npm run export -- --png - ./thumbs
 Use `--json` for machine-readable output (implicit for `--validate`, `--list-themes`, `--list-schemes`):
 
 ```bash
-npm run export -- --json --pdf talk.md
+stellardeck --json --pdf talk.md
 ```
 
 Success:
@@ -196,30 +191,30 @@ Exports succeed even when problems are detected. Warnings surface issues for age
 ### Title slide thumbnail
 
 ```bash
-npm run export -- --png --slides 1 --scale 1 talk.md ./thumb
+stellardeck --png --slides 1 --scale 1 talk.md ./thumb
 ```
 
 ### Deck overview card
 
 ```bash
-npm run export -- --grid --grid-cols 3 --slides 1-9 talk.md card.png
+stellardeck --grid --grid-cols 3 --slides 1-9 talk.md card.png
 ```
 
 ### Generate from LLM output
 
 ```bash
 claude "write a 5-slide deck about X in Deckset markdown" \
-  | npm run export -- --pdf --autoflow - out.pdf
+  | stellardeck --pdf --autoflow - out.pdf
 ```
 
 ### Agent workflow with warning handling
 
 ```bash
-result=$(npm run export -- --json --pdf slides.md)
+result=$(stellardeck --json --pdf slides.md)
 
 if echo "$result" | jq -e '.warnings | any(contains("overflow"))' > /dev/null; then
   echo "Overflow detected — re-exporting with autoflow"
-  npm run export -- --json --pdf --autoflow slides.md
+  stellardeck --json --pdf --autoflow slides.md
 fi
 ```
 

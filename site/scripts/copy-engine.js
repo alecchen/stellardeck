@@ -22,8 +22,8 @@ mkdirSync(dest, { recursive: true });
 const files = [
   ['slides2.js', 'stellar-slides.js'],
   ['slides2.css', 'stellar-slides.css'],
-  ['deckset-parser.js', 'stellar-parser.js'],
-  ['autoflow.js', 'stellar-autoflow.js'],
+  ['packages/core/src/deckset-parser.js', 'stellar-parser.js'],
+  ['packages/core/src/autoflow.js', 'stellar-autoflow.js'],
   ['embed/stellar-embed.js', 'stellar-embed.js'],
   ['css/themes.css', 'stellar-themes.css'],
   ['css/layout.css', 'stellar-layout.css'],
