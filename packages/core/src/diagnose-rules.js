@@ -21,6 +21,7 @@
  *     hasBgColor: boolean,
  *     hasBgBroken: boolean,
  *     hasInlineImg: boolean,
+ *     hasDiagram: boolean,        // .deckset-diagram or rendered svg
  *     codeBlocks: Array<{ hasLanguage: boolean, contentLength: number }>,
  *   }
  */
@@ -60,7 +61,9 @@
   function emptySlideRule(snap) {
     const text = (snap.visibleText || '').trim();
     const hasBg = !!(snap.hasBgImage || snap.hasBgVideo || snap.hasBgColor || snap.hasBgBroken);
-    if (text || hasBg || snap.hasInlineImg) return [];
+    // visibleText excludes block code / diagrams (not prose) — a slide
+    // that is only a code listing or a diagram is still not empty.
+    if (text || hasBg || snap.hasInlineImg || (snap.codeBlocks || []).length || snap.hasDiagram) return [];
     return [{
       type: 'empty-slide',
       severity: 'warn',

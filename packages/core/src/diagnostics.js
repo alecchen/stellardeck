@@ -161,10 +161,20 @@
     }
 
     // Build a serializable snapshot of the slide for the pure-rules pass.
-    // Visible text excludes speaker notes (<aside class="notes">).
+    // Visible text excludes speaker notes (<aside class="notes">) AND
+    // block code / diagram sources — mermaid markup and code listings
+    // aren't prose, and counting them made the density rule flag diagram
+    // slides ("slide has 195 words") that render as a compact SVG.
+    // Inline <code> chips stay: they read as words on the slide, and
+    // dropping them would make code-chip statement slides look empty.
     const visibleText = Array.from(section.children)
       .filter(c => c.tagName !== 'ASIDE')
-      .map(c => c.textContent || '')
+      .map(c => {
+        if (!c.querySelector('pre, svg, .deckset-diagram')) return c.textContent || '';
+        const clone = c.cloneNode(true);
+        clone.querySelectorAll('pre, svg, .deckset-diagram').forEach(n => n.remove());
+        return clone.textContent || '';
+      })
       .join(' ');
     const codeBlocks = Array.from(section.querySelectorAll('pre > code')).map(pre => ({
       hasLanguage: Array.from(pre.classList).some(c => c.startsWith('language-')),
@@ -182,6 +192,7 @@
       hasBgColor: section.hasAttribute('data-background-color'),
       hasBgBroken: section.hasAttribute('data-bg-broken'),
       hasInlineImg: !!(section.querySelector('img') || section.querySelector('[style*="background-image"]')),
+      hasDiagram: !!section.querySelector('.deckset-diagram, svg'),
       codeBlocks,
     };
     if (pureRules && pureRules.runPureRules) {
