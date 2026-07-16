@@ -73,11 +73,29 @@
         const tx = isImg ? imgThreshXpx : OVERFLOW_TOLERANCE;
         const ty = isImg ? imgThreshYpx : OVERFLOW_TOLERANCE;
 
+        // Inline elements report line-box rects that include the font's
+        // ascent/descent headroom — with display fonts (metric height >
+        // line-height) that "overflows" vertically with no visible ink
+        // (issue #2: <strong> "SIM." flagged 23px above a slide that
+        // renders fine). Vertical checks use the nearest block ancestor's
+        // box instead; horizontal inline bounds are advance widths and
+        // stay trustworthy.
+        let vr = r;
+        if (!isImg && typeof getComputedStyle === 'function'
+            && getComputedStyle(el).display === 'inline') {
+          let block = el.parentElement;
+          while (block && block !== section
+            && getComputedStyle(block).display === 'inline') {
+            block = block.parentElement;
+          }
+          if (block) vr = block.getBoundingClientRect();
+        }
+
         const overshoots = [];
         if (r.right > frame.right + tx)  overshoots.push(`right by ${Math.round(r.right - frame.right)}px`);
-        if (r.bottom > frame.bottom + ty) overshoots.push(`bottom by ${Math.round(r.bottom - frame.bottom)}px`);
+        if (vr.bottom > frame.bottom + ty) overshoots.push(`bottom by ${Math.round(vr.bottom - frame.bottom)}px`);
         if (r.left < frame.left - tx)    overshoots.push(`left by ${Math.round(frame.left - r.left)}px`);
-        if (r.top < frame.top - ty)      overshoots.push(`top by ${Math.round(frame.top - r.top)}px`);
+        if (vr.top < frame.top - ty)     overshoots.push(`top by ${Math.round(frame.top - vr.top)}px`);
         if (overshoots.length === 0) continue;
 
         const desc = isImg

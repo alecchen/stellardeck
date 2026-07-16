@@ -17,11 +17,16 @@ export function measureText(text, fontSize, fontWeight) {
   return state.measurer.scrollWidth;
 }
 
-// Measure using actual HTML (preserves <code>, <strong>, etc. with their fonts)
+// Measure using actual HTML (preserves <code>, <strong>, etc. with their fonts).
+// The markup is wrapped in a <div> so descendant rules match: `.sd-slide
+// :not(pre) > code` needs an element BETWEEN the .sd-slide root and the code —
+// in the real slide that element is the heading. Without the wrapper, code
+// chips measured with no monospace/0.9em/padding and wide lines were
+// undersized (issue #1: "Angular" overflowed right by 46px).
 function measureHTML(html, fontSize, fontWeight) {
   state.measurer.style.fontSize = fontSize + 'px';
   state.measurer.style.fontWeight = fontWeight;
-  state.measurer.innerHTML = html;
+  state.measurer.innerHTML = '<div>' + html + '</div>';
   return state.measurer.scrollWidth;
 }
 
