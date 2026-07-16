@@ -13,7 +13,14 @@ const { chromium } = require('@playwright/test');
 const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const { CDN, SLIDE, THEMES } = require('@stellardeck/core/constants');
+// In the dev repo the workspace symlink resolves the scoped name; in the
+// published npm package packages/core ships inside the tarball instead of
+// as a registry dependency (viewer.html loads packages/core/dist by path,
+// so the copy must be there anyway — one source, not two).
+let coreConstants;
+try { coreConstants = require('@stellardeck/core/constants'); }
+catch { coreConstants = require(path.join(__dirname, '..', 'packages', 'core', 'src', 'constants.js')); }
+const { CDN, SLIDE, THEMES } = coreConstants;
 
 const PROJECT_DIR = path.resolve(__dirname, '..');
 const SLIDE_W = SLIDE.WIDTH;
@@ -226,7 +233,9 @@ function parseSlideRange(str) {
 // ── Server management ────────────────────────────────────────
 
 function startServer(port) {
-  const server = spawn('python3', ['scripts/dev-server.py', String(port)], {
+  // node twin of scripts/dev-server.py — no python3 needed on user machines
+  // (this is what makes `npm i -g stellardeck` self-contained).
+  const server = spawn(process.execPath, [path.join(__dirname, 'serve.js'), String(port)], {
     cwd: PROJECT_DIR, stdio: 'ignore', detached: true,
   });
   server.unref();
@@ -267,7 +276,9 @@ async function resolveInput(input) {
       cleanup: () => fs.rmSync(tmpDir, { recursive: true, force: true }),
     };
   }
-  const resolved = path.isAbsolute(input) ? input : path.resolve(PROJECT_DIR, input);
+  // Relative inputs resolve against the user's cwd (like any CLI); the repo
+  // tests run from the repo root so cwd == PROJECT_DIR there.
+  const resolved = path.isAbsolute(input) ? input : path.resolve(process.cwd(), input);
   if (!fs.existsSync(resolved)) throw new Error(`File not found: ${input}`);
   return { path: resolved, relative: toServerPath(resolved), cleanup: () => {} };
 }
@@ -631,7 +642,7 @@ function listSchemes(themeName) {
 }
 
 async function runBatch(opts, onProgress = null) {
-  const inputDir = path.isAbsolute(opts.inputDir) ? opts.inputDir : path.resolve(PROJECT_DIR, opts.inputDir);
+  const inputDir = path.isAbsolute(opts.inputDir) ? opts.inputDir : path.resolve(process.cwd(), opts.inputDir);
   if (!fs.existsSync(inputDir)) throw new Error(`Input directory not found: ${opts.inputDir}`);
   if (!fs.statSync(inputDir).isDirectory()) throw new Error(`Not a directory: ${opts.inputDir}`);
 

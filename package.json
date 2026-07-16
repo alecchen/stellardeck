@@ -1,7 +1,7 @@
 {
   "name": "stellardeck",
   "version": "0.9.0",
-  "description": "Markdown presentation engine — Deckset-compatible, autoflow layouts, zero dependencies",
+  "description": "Markdown presentation engine \u2014 Deckset-compatible, autoflow layouts, zero dependencies",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -42,20 +42,42 @@
     "app:debug": "electron . --remote-debugging-port=9222",
     "start": "electron-forge start --",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "prepublishOnly": "cd packages/core && npx tsup"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.11.1",
     "@electron-forge/maker-dmg": "^7.11.1",
     "@electron-forge/maker-zip": "^7.11.1",
-    "@playwright/test": "^1.58.2",
     "electron": "^40.0.0"
   },
   "dependencies": {
+    "@playwright/test": "^1.58.2",
     "chokidar": "^3.6.0",
     "electron-store": "^8.2.0",
     "pdf-lib": "^1.17.1",
     "pptxgenjs": "^4.0.1",
     "sharp": "^0.34.5"
-  }
+  },
+  "bin": {
+    "stellardeck": "scripts/export.js"
+  },
+  "files": [
+    "scripts/export.js",
+    "scripts/serve.js",
+    "scripts/export-pptx.js",
+    "viewer.html",
+    "presenter.html",
+    "index.html",
+    "slides2.js",
+    "slides2.css",
+    "css/",
+    "js/",
+    "vendor/",
+    "embed/",
+    "assets/brand/",
+    "packages/core/src/",
+    "packages/core/dist/",
+    "packages/core/package.json"
+  ]
 }

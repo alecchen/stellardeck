@@ -26,6 +26,8 @@ module.exports = {
       '^/docs($|/)',
       '^/\\.github($|/)',
       '^/scripts/dev-server\\.py$',
+      '^/node_modules/@playwright($|/)',
+      '^/node_modules/playwright-core($|/)',
       '^/\\.claude($|/)',
       '^/\\.git($|/)',
       '\\.test\\.js$',
