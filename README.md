@@ -30,20 +30,20 @@ stellardeck --html --theme hacker --scheme 1 deck.md
 
 ### Themes & Schemes
 
-| Theme | Label | # Schemes | Schemes |
-|-------|-------|-----------|---------|
-| `(default)` | Default (Inter) | 3 | 1 `#0a0a0a`/`#f8fafc` · 2 `#fff`/`#111` · 3 `#1e293b`/`#e2e8f0` |
-| `letters-from-brazil` | Letters from Brazil | 7 | 1 `#47B386`/`#2C3850` · 2 `#E8D6D2`/`#FB6863` · 3 `#22A6E3`/`#EDEAE3` · 4 `#122232`/`#FEE04A` · 5 `#085293`/`#FDCA42` · 6 `#FFF`/`#000` · 7 `#000`/`#FFF` |
-| `serif` | Serif | 4 | 1 `#f5f0eb`/`#1a1a1a` · 2 `#1a1a2e`/`#e0d5c1` · 3 `#fefefe`/`#2c3e50` · 4 `#0d1117`/`#f0e6d3` |
-| `minimal` | Minimal | 4 | 1 `#fff`/`#111` · 2 `#0f172a`/`#f1f5f9` · 3 `#fafaf9`/`#1c1917` · 4 `#18181b`/`#fafafa` |
-| `hacker` | Hacker | 4 | 1 `#0d1117`/`#58a6ff` · 2 `#282a36`/`#bd93f9` · 3 `#002b36`/`#b58900` · 4 `#1a1b26`/`#7aa2f7` |
-| `poster` | Poster | 4 | 1 `#000`/`#fff` · 2 `#1a0a2e`/`#f0e68c` · 3 `#fff`/`#000` · 4 `#0a192f`/`#64ffda` |
-| `borneli` | Borneli | 5 | 1 `#ece7e2`/`#1a1050` · 2 `#1a1050`/`#ece7e2` · 3 `#fff`/`#1a1050` · 4 `#8a2080`/`#fff` · 5 `#f5f0eb`/`#1a1050` |
-| `alun` | Alun | 5 | 1 `#0d0c0c`/`#FF9414` · 2 `#0d0c0c`/`#ED1460` · 3 `#f3f2f2`/`#0d0c0c` · 4 `#FF9414`/`#0d0c0c` · 5 `#ED1460`/`#fff` |
-| `nordic` | Nordic | 5 | 1 `#0a1628`/`#e2e8f0` · 2 `#fafaf9`/`#1c1917` · 3 `#1e293b`/`#f1f5f9` · 4 `#0f172a`/`#fbbf24` · 5 `#fff`/`#0f172a` |
-| `keynote` | Keynote | 5 | 1 `#000`/`#fff` · 2 `#111827`/`#f9fafb` · 3 `#fff`/`#111827` · 4 `#0c0a20`/`#e0e7ff` · 5 `#1c1917`/`#fef3c7` |
+| Theme | Label | Schemes |
+|-------|-------|---------|
+| `(default)` | Default (Inter) | 🟫 `#0a0a0a` ⬜ `#fff` 🟦 `#1e293b` |
+| `letters-from-brazil` | Letters from Brazil | 🟩 `#47B386` 🩷 `#E8D6D2` 🟦 `#22A6E3` 🟫 `#122232` 🔵 `#085293` ⬜ `#fff` ⬛ `#000` |
+| `serif` | Serif | 🟫 `#f5f0eb` 🟫 `#1a1a2e` ⬜ `#fefefe` 🟫 `#0d1117` |
+| `minimal` | Minimal | ⬜ `#fff` 🟦 `#0f172a` ⬜ `#fafaf9` 🟫 `#18181b` |
+| `hacker` | Hacker | 🟦 `#0d1117` 🟪 `#282a36` 🟦 `#002b36` 🟦 `#1a1b26` |
+| `poster` | Poster | ⬛ `#000` 🟪 `#1a0a2e` ⬜ `#fff` 🟦 `#0a192f` |
+| `borneli` | Borneli | 🟫 `#ece7e2` 🟪 `#1a1050` ⬜ `#fff` 🟪 `#8a2080` 🟫 `#f5f0eb` |
+| `alun` | Alun | ⬛ `#0d0c0c` 🟧 `#FF9414` ⬜ `#f3f2f2` 🟧 `#FF9414` 🟥 `#ED1460` |
+| `nordic` | Nordic | 🟦 `#0a1628` ⬜ `#fafaf9` 🟦 `#1e293b` 🟦 `#0f172a` ⬜ `#fff` |
+| `keynote` | Keynote | ⬛ `#000` 🟫 `#111827` ⬜ `#fff` 🟪 `#0c0a20` 🟫 `#1c1917` |
 
-Format: `bg / fg` (background / text color)
+Each scheme = `bg / text`. Set via frontmatter `theme: <name>, <scheme>` or CLI `--theme <name> --scheme <n>`.
 
 ## Try it
 
