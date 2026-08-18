@@ -45,10 +45,10 @@ Set via frontmatter `theme: <name>, <scheme>` or CLI `--theme <name> --scheme <n
 | # | Background | Text |
 |---|-----------|------|
 | 1 | 🟩 `#47B386` | 🟫 `#2C3850` |
-| 2 | 🩷 `#E8D6D2` | 🟥 `#FB6863` |
+| 2 | 🟥 `#E8D6D2` | 🟥 `#FB6863` |
 | 3 | 🟦 `#22A6E3` | ⬜ `#EDEAE3` |
 | 4 | 🟫 `#122232` | 🟨 `#FEE04A` |
-| 5 | 🔵 `#085293` | 🟨 `#FDCA42` |
+| 5 | 🟦 `#085293` | 🟨 `#FDCA42` |
 | 6 | ⬜ `#FFFFFF` | ⬛ `#000000` |
 | 7 | ⬛ `#000000` | ⬜ `#FFFFFF` |
 
@@ -74,10 +74,10 @@ Set via frontmatter `theme: <name>, <scheme>` or CLI `--theme <name> --scheme <n
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟫 `#0d1117` | 🔵 `#58a6ff` |
+| 1 | 🟫 `#0d1117` | 🟦 `#58a6ff` |
 | 2 | 🟪 `#282a36` | 🟪 `#bd93f9` |
 | 3 | 🟦 `#002b36` | 🟨 `#b58900` |
-| 4 | 🟫 `#1a1b26` | 🔵 `#7aa2f7` |
+| 4 | 🟫 `#1a1b26` | 🟦 `#7aa2f7` |
 
 **Poster** — `theme: poster` (4 schemes)
 
