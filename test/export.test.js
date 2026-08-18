@@ -30,6 +30,7 @@ const {
   exportPDF,
   exportPNG,
   exportGrid,
+  exportHTML,
 } = require('../scripts/export.js');
 
 const PROJECT_DIR = path.resolve(__dirname, '..');
@@ -172,6 +173,13 @@ test('Grid: talk.md → dist/talk-grid.png', () => {
   );
 });
 
+test('HTML: talk.md → dist/talk.html', () => {
+  assert.strictEqual(
+    buildBatchOutputPath('dist', 'talk.md', 'html'),
+    path.join('dist', 'talk.html')
+  );
+});
+
 test('Nested: cat/talk.md preserves subdir', () => {
   assert.strictEqual(
     buildBatchOutputPath('dist', 'cat/talk.md', 'pdf'),
@@ -306,6 +314,42 @@ if (!SKIP_INTEGRATION) {
   test('Grid is a valid PNG', () => {
     const magic = fs.readFileSync(gridOut).subarray(0, 8);
     assert.deepStrictEqual(Array.from(magic), [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  });
+
+  console.log('\n── HTML export (integration) ──');
+
+  const htmlOut = path.join(TMP, 'smoke.html');
+  let htmlResult;
+
+  test('HTML export writes single file', async () => {
+    htmlResult = await run({
+      input: SMOKE, output: htmlOut, format: 'html',
+      port: 3032, scale: 1, slides: parseSlideRange('1-3'),
+      theme: null, scheme: null, autoflow: false,
+    });
+    assert.ok(fs.existsSync(htmlOut), 'HTML file not created');
+  });
+
+  test('HTML file starts with doctype and contains .reveal', () => {
+    const content = fs.readFileSync(htmlOut, 'utf8');
+    assert.ok(content.startsWith('<!doctype html>'), 'missing doctype');
+    assert.ok(content.includes('class="reveal"'), 'missing .reveal');
+  });
+
+  test('HTML is self-contained (no local server URLs)', () => {
+    const content = fs.readFileSync(htmlOut, 'utf8');
+    assert.ok(!content.includes('http://127.0.0.1'), 'contains local server URLs');
+  });
+
+  test('HTML contains engine JS (StellarSlides)', () => {
+    const content = fs.readFileSync(htmlOut, 'utf8');
+    assert.ok(content.includes('StellarSlides'), 'missing engine');
+  });
+
+  test('HTML result has format=html and correct slides', () => {
+    assert.strictEqual(htmlResult.format, 'html');
+    assert.strictEqual(htmlResult.slides, 3);
+    assert.ok(htmlResult.bytes > 5000, 'bytes=' + htmlResult.bytes);
   });
 
   console.log('\n── Slide range warnings (integration) ──');

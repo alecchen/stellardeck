@@ -14,9 +14,36 @@ Four ideas shape the project:
 
 **Agent-native.** Markdown is what LLMs produce. The [CLI](docs/comparison.md) takes stdin, exports PDF/PNG/grid, previews in the browser, validates diagnostics, and emits structured JSON. The [stellardeck skill](docs/skill-stellardeck-spec.md) converts source text (blog posts, transcripts, meeting notes) into scored slide decks.
 
-**Simple.** `npm run preview -- deck.md` and you're presenting. No build step, no bundler. The `.md` file is the artifact, PDFs are regenerable.
+**Simple.** `npm run serve` and open the deck in your browser. No build step, no bundler. The `.md` file is the artifact, PDFs are regenerable.
 
-9 themes, up to 7 color schemes each, dark and light.
+9 themes, up to 7 color schemes each, dark and light. Set via frontmatter or CLI:
+
+```markdown
+---
+theme: nordic, 2
+---
+```
+
+```bash
+stellardeck --html --theme hacker --scheme 1 deck.md
+```
+
+### Themes & Schemes
+
+| Theme | Label | # Schemes | Schemes |
+|-------|-------|-----------|---------|
+| `(default)` | Default (Inter) | 3 | 1 `#0a0a0a`/`#f8fafc` · 2 `#fff`/`#111` · 3 `#1e293b`/`#e2e8f0` |
+| `letters-from-brazil` | Letters from Brazil | 7 | 1 `#47B386`/`#2C3850` · 2 `#E8D6D2`/`#FB6863` · 3 `#22A6E3`/`#EDEAE3` · 4 `#122232`/`#FEE04A` · 5 `#085293`/`#FDCA42` · 6 `#FFF`/`#000` · 7 `#000`/`#FFF` |
+| `serif` | Serif | 4 | 1 `#f5f0eb`/`#1a1a1a` · 2 `#1a1a2e`/`#e0d5c1` · 3 `#fefefe`/`#2c3e50` · 4 `#0d1117`/`#f0e6d3` |
+| `minimal` | Minimal | 4 | 1 `#fff`/`#111` · 2 `#0f172a`/`#f1f5f9` · 3 `#fafaf9`/`#1c1917` · 4 `#18181b`/`#fafafa` |
+| `hacker` | Hacker | 4 | 1 `#0d1117`/`#58a6ff` · 2 `#282a36`/`#bd93f9` · 3 `#002b36`/`#b58900` · 4 `#1a1b26`/`#7aa2f7` |
+| `poster` | Poster | 4 | 1 `#000`/`#fff` · 2 `#1a0a2e`/`#f0e68c` · 3 `#fff`/`#000` · 4 `#0a192f`/`#64ffda` |
+| `borneli` | Borneli | 5 | 1 `#ece7e2`/`#1a1050` · 2 `#1a1050`/`#ece7e2` · 3 `#fff`/`#1a1050` · 4 `#8a2080`/`#fff` · 5 `#f5f0eb`/`#1a1050` |
+| `alun` | Alun | 5 | 1 `#0d0c0c`/`#FF9414` · 2 `#0d0c0c`/`#ED1460` · 3 `#f3f2f2`/`#0d0c0c` · 4 `#FF9414`/`#0d0c0c` · 5 `#ED1460`/`#fff` |
+| `nordic` | Nordic | 5 | 1 `#0a1628`/`#e2e8f0` · 2 `#fafaf9`/`#1c1917` · 3 `#1e293b`/`#f1f5f9` · 4 `#0f172a`/`#fbbf24` · 5 `#fff`/`#0f172a` |
+| `keynote` | Keynote | 5 | 1 `#000`/`#fff` · 2 `#111827`/`#f9fafb` · 3 `#fff`/`#111827` · 4 `#0c0a20`/`#e0e7ff` · 5 `#1c1917`/`#fef3c7` |
+
+Format: `bg / fg` (background / text color)
 
 ## Try it
 
@@ -53,7 +80,8 @@ Sample decks (images included): [`stellardeck-demo-decks.zip`](https://github.co
 git clone https://github.com/peas/stellardeck.git
 cd stellardeck
 npm install
-npm run preview -- demo/getting-started.md
+npm run serve
+# then open http://127.0.0.1:3031/demo/getting-started.md
 ```
 
 ## Desktop app (Electron)
@@ -76,13 +104,14 @@ Built with [Electron](https://www.electronjs.org/) + [electron-forge](https://ww
 
 ```bash
 # Live
-npm run preview -- deck.md                           # open in browser, Ctrl+C stops
-npm run export -- --serve                            # dev server + viewer
+npm run serve                                     # dev server at http://127.0.0.1:3031
+# then open http://127.0.0.1:3031/deck.md in your browser
 
 # Export
 npm run export -- deck.md                            # → deck.pdf
 npm run export -- --png deck.md                      # → deck-slides/001.png, 002.png...
 npm run export -- --grid deck.md                     # → deck-grid.png
+npm run export -- --html deck.md                      # → deck.html (self-contained)
 npm run export -- --input-dir decks --output dist    # batch
 
 # Inspect
@@ -99,6 +128,8 @@ npm run export -- --help                             # full reference
 ## Format
 
 StellarDeck uses Deckset-compatible markdown. See [format-spec.yaml](docs/format-spec.yaml) for the full 66-feature spec.
+
+GitHub-style emoji shortcodes are supported: `:pencil:` → ✏️, `:rocket:` → 🚀, `:trophy:` → 🏆. Over 180 shortcodes mapped to native Unicode emoji. Unknown shortcodes pass through untouched.
 
 ```markdown
 footer: My Talk
@@ -131,6 +162,30 @@ npm run test:export   # 40 CLI integration tests
 npm run test:visual   # 18 visual regression tests
 npm run test:all      # all of the above
 ```
+
+## What's Changed
+
+### `--html` — self-contained HTML export
+```bash
+stellardeck --html deck.md            # → deck.html (open via file://, no server)
+stellardeck --html --theme hacker --scheme 1 deck.md
+stellardeck --html --slides 1-5 deck.md
+```
+Single file, works offline. Engine CSS/JS + syntax highlighting (vendored hljs) inlined. Deck images embedded as `data:` URIs. KaTeX / Mermaid / QR loaded from CDN only when placeholders are present (lazy).
+
+### Emoji shortcodes
+GitHub-style `:name:` shortcodes now render as native Unicode emoji throughout your slides:
+```markdown
+# [fit] programmer's :pencil:        → ✏️
+# [fit] :trophy: TOP 10 :trophy:     → 🏆
+# [fit] vim :heart_eyes:             → 😍
+```
+180+ shortcodes supported, including all standard GitHub emoji. Unknown names pass through unchanged.
+
+### Bug fixes
+- HTML export body was empty (`undefined`) due to `exportByFormat` passing the wrapper object instead of the capture result
+- CLI export message was blank for `--html` format (missing case in result formatter)
+- `--slides` filter count was wrong for HTML exports (showed 1 instead of actual slide count)
 
 ## License
 

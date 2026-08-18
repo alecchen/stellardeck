@@ -26,6 +26,10 @@ const PROJECT_DIR = path.resolve(__dirname, '..');
 const SLIDE_W = SLIDE.WIDTH;
 const SLIDE_H = SLIDE.HEIGHT;
 
+// Self-contained HTML export (captures the live rendered DOM, not pixels).
+// Sibling module ships alongside export.js in the published package too.
+const { captureHTML, exportHTML } = require(path.join(__dirname, 'export-html.js'));
+
 // ── Help ─────────────────────────────────────────────────────
 
 const HELP = `
@@ -57,6 +61,7 @@ const HELP = `
     --png              Export one PNG per slide to a directory
     --grid             Export single image with all slides in a grid
     --grid-cols <n>    Columns for grid layout (default: 4)
+    --html             Export a single self-contained HTML file (no server needed)
 
   Validation & introspection:
     --validate         Render deck and collect warnings without exporting.
@@ -123,6 +128,7 @@ function parseArgs(argv) {
     else if (a === '--pdf') opts.format = 'pdf';
     else if (a === '--png') opts.format = 'png';
     else if (a === '--grid') opts.format = 'grid';
+    else if (a === '--html') opts.format = 'html';
     else if (a === '--json') opts.json = true;
     else if (a === '--autoflow') opts.autoflow = true;
     else if (a === '--validate') opts.mode = 'validate';
@@ -184,7 +190,7 @@ function parseArgs(argv) {
   if (positional.length === 0) throw new CLIError('missing input file (see --help)');
 
   opts.input = positional[0];
-  const ext = opts.format === 'pdf' ? '.pdf' : opts.format === 'grid' ? '-grid.png' : '-slides';
+  const ext = opts.format === 'pdf' ? '.pdf' : opts.format === 'grid' ? '-grid.png' : opts.format === 'html' ? '.html' : '-slides';
   const baseName = opts.input === '-'
     ? 'stdin'
     : path.basename(opts.input).replace(/\.md$/, '');
@@ -392,10 +398,11 @@ async function captureInSession(session, relativePath, options) {
   // (see page.evaluate below).
 
   // Re-inject html2canvas after each navigation (page context reset).
-  // Skip for --validate mode since we don't capture images.
+  // Skip for --validate mode since we don't capture images, and for --html
+  // since we capture DOM, not pixels.
   // Prefer the vendored local copy (no network); fall back to the CDN if
   // it's missing. The CDN alone is flaky in some networks and kills the export.
-  if (!skipCapture) {
+  if (!skipCapture && options.format !== 'html') {
     const localH2C = path.join(PROJECT_DIR, 'vendor', 'html2canvas.min.js');
     if (fs.existsSync(localH2C)) {
       await page.addScriptTag({ path: localH2C });
@@ -427,6 +434,21 @@ async function captureInSession(session, relativePath, options) {
     indices.sort((a, b) => a - b);
   } else {
     for (let i = 1; i <= totalSlides; i++) indices.push(i);
+  }
+
+  // HTML export: capture the live rendered DOM instead of screenshots. The
+  // deck is fully rendered at this point (networkidle + fonts + settle above),
+  // so the captured markup reflects app output exactly — autoflow, fitText,
+  // and any CDN-rendered extras included. Images are inlined to data: URIs
+  // inside the page; exportHTML() assembles the standalone file.
+  if (options.format === 'html') {
+    const capture = await page.evaluate(captureHTML, { indices });
+    warnings.push(...capture.warnings);
+    return {
+      slides: [{ index: null, html: capture }],
+      totalSlides,
+      warnings,
+    };
   }
 
   // Capture each selected slide + collect per-slide diagnostics via StellarDiagnostics
@@ -559,6 +581,7 @@ async function exportByFormat(slides, outputPath, opts) {
   if (opts.format === 'pdf') return { ...await exportPDF(slides, outputPath), format: 'pdf' };
   if (opts.format === 'png') return { ...await exportPNG(slides, outputPath), format: 'png' };
   if (opts.format === 'grid') return { ...await exportGrid(slides, outputPath, opts.gridCols), format: 'grid' };
+  if (opts.format === 'html') return exportHTML(slides[0].html, outputPath, opts);
   throw new Error(`Unknown format: ${opts.format}`);
 }
 
@@ -568,7 +591,7 @@ async function exportByFormat(slides, outputPath, opts) {
  */
 function buildBatchOutputPath(outputDir, relativeToBase, format) {
   const baseName = relativeToBase.replace(/\.md$/, '');
-  const ext = format === 'pdf' ? '.pdf' : format === 'grid' ? '-grid.png' : '-slides';
+  const ext = format === 'pdf' ? '.pdf' : format === 'grid' ? '-grid.png' : format === 'html' ? '.html' : '-slides';
   return path.join(outputDir, `${baseName}${ext}`);
 }
 
@@ -579,7 +602,7 @@ async function run(opts, onProgress = null) {
   try {
     const { slides, totalSlides, warnings } = await captureSlides(inputInfo.relative, opts, onProgress);
     const result = await exportByFormat(slides, opts.output, opts);
-    result.slides = slides.length;
+    result.slides = result.slides ?? slides.length;
     result.totalSlides = totalSlides;
     result.warnings = warnings;
     return result;
@@ -663,7 +686,7 @@ async function runBatch(opts, onProgress = null) {
         const { slides, totalSlides, warnings } = await captureInSession(session, relInput, opts);
         const result = await exportByFormat(slides, outputPath, opts);
         results.push({
-          input: file, output: result.path, slides: slides.length,
+          input: file, output: result.path, slides: result.slides ?? slides.length,
           totalSlides, warnings, bytes: result.bytes,
         });
       } catch (err) {
@@ -683,7 +706,9 @@ function humanResult(result) {
   if (result.format === 'pdf') return `\u2713 Exported ${result.slides} slides to ${result.path} (${sizeMB} MB)`;
   if (result.format === 'png') return `\u2713 Exported ${result.slides} PNG files to ${result.path}/ (${sizeMB} MB total)`;
   if (result.format === 'grid') return `\u2713 Exported ${result.rows}×${result.cols} grid of ${result.slides} slides to ${result.path} (${sizeMB} MB)`;
+  if (result.format === 'html') return `\u2713 Exported ${result.slides} slides to ${result.path} (${sizeMB} MB)`;
 }
+
 
 function humanBatchSummary(results) {
   const ok = results.filter(r => !r.error);
@@ -892,6 +917,7 @@ module.exports = {
   exportPDF,
   exportPNG,
   exportGrid,
+  exportHTML,
   exportByFormat,
   run,
   runBatch,

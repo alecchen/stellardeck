@@ -179,7 +179,7 @@ After 1-3 (all green now):
 - `@stellardeck/core` npm package
 - `headingDivider` directive (auto-split at H1/H2)
 - Custom slide sizes (4:3, 16:10)
-- `--html` self-contained export
+- [x] `--html` self-contained export (implemented 2026-08-18 via `scripts/export-html.js`; DOM-capture from live renderer, vendored hljs inline, images → data URIs, engine CSS/JS inlined, standalone boot with keyboard nav)
 - `--parallel N` for batch
 - Runtime theme registration
 - **PPTX export from screenshots (`--pptx` flag on the main CLI).** Today there's `scripts/export-pptx.js` (native PowerPoint elements — editable text, images) and the main `scripts/export.js` does PDF/PNG/grid via Playwright. Add `--pptx` to the main pipeline so screenshots-PPTX shares the captureSlides() infra (just wraps each PNG in a fullbleed `slide.addImage` via `pptxgenjs`, layout `LAYOUT_WIDE` 13.333×7.5in 16:9). Use case: handing the deck to a non-technical client / event organizer who only opens PowerPoint. Verified manually 2026-05-06: works perfectly (Paulo's vibecoders-builders-hipsters deck → 26-slide pptx, 23MB). One-shot script lives in shell history; needs to become first-class. Open question: name `--pptx` (parity with `--pdf`/`--png`) vs `--pptx-screenshots` to leave room for a future `--pptx-native` mode that calls into the existing native exporter — recommend `--pptx` (default = screenshots, the safer/uglier-but-pixel-perfect choice) and `--pptx-native` for the native variant.

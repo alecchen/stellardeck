@@ -67,9 +67,15 @@ test('--grid format → default output is <name>-grid.png', () => {
   assert.strictEqual(opts.output, 'deck-grid.png');
 });
 
+test('--html format → default output is <name>.html', () => {
+  const opts = parseArgs(argv('--html', 'deck.md'));
+  assert.strictEqual(opts.format, 'html');
+  assert.strictEqual(opts.output, 'deck.html');
+});
+
 test('last format flag wins', () => {
-  const opts = parseArgs(argv('--pdf', '--png', '--grid', 'deck.md'));
-  assert.strictEqual(opts.format, 'grid');
+  const opts = parseArgs(argv('--pdf', '--png', '--grid', '--html', 'deck.md'));
+  assert.strictEqual(opts.format, 'html');
 });
 
 test('defaults: scale=2, port=3032, gridCols=4, json=false, autoflow=false', () => {
