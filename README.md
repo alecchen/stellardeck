@@ -66,23 +66,35 @@ Six example decks you can navigate and edit live — right in your browser:
 **CLI:**
 
 ```bash
-npm install -g stellardeck
-npx playwright install chromium   # one-time: the headless renderer
-stellardeck deck.md               # → deck.pdf
-stellardeck --preview deck.md     # live preview in the browser
+npm install -g stellardeck           # coming soon — npm publish on roadmap
+npx playwright install chromium      # one-time: the headless renderer
+stellardeck deck.md                  # → deck.pdf
+stellardeck --preview deck.md        # live preview in the browser
+```
+
+> **Not on npm yet?** Use the local alternatives below until `npm i -g stellardeck` lands.
+
+**Option 1 — Run from the cloned repo:**
+
+```bash
+git clone https://github.com/alecchen/stellardeck.git
+cd stellardeck
+npm install
+node scripts/export.js --html deck.md
+
+# or add an alias:
+alias stellardeck='node ~/git/stellardeck/scripts/export.js'
+stellardeck --html deck.md
+```
+
+**Option 2 — Build a packaged Electron app (.app on macOS):**
+
+```bash
+npm run package   # builds StellarDeck.app (menu bar says "StellarDeck")
+npm run make      # produces .dmg + .zip for distribution
 ```
 
 Sample decks (images included): [`stellardeck-demo-decks.zip`](https://github.com/peas/stellardeck/releases/latest/download/stellardeck-demo-decks.zip)
-
-**From source:**
-
-```bash
-git clone https://github.com/peas/stellardeck.git
-cd stellardeck
-npm install
-npm run serve
-# then open http://127.0.0.1:3031/demo/getting-started.md
-```
 
 ## Desktop app (Electron)
 
