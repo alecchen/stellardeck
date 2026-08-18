@@ -36,97 +36,97 @@ Set via frontmatter `theme: <name>, <scheme>` or CLI `--theme <name> --scheme <n
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟫 `#0a0a0a` | ⬜ `#f8fafc` |
-| 2 | ⬜ `#ffffff` | ⬛ `#111111` |
-| 3 | 🟦 `#1e293b` | ⬜ `#e2e8f0` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a0a0a;color:#f8fafc;font-weight:600">Aa</span> `#0a0a0a` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a0a0a;color:#f8fafc;font-weight:600">Aa</span> `#f8fafc` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#111111` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#e2e8f0;font-weight:600">Aa</span> `#1e293b` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#e2e8f0;font-weight:600">Aa</span> `#e2e8f0` |
 
 **Letters from Brazil** — `theme: letters-from-brazil` (7 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟩 `#47B386` | 🟫 `#2C3850` |
-| 2 | 🟥 `#E8D6D2` | 🟥 `#FB6863` |
-| 3 | 🟦 `#22A6E3` | ⬜ `#EDEAE3` |
-| 4 | 🟫 `#122232` | 🟨 `#FEE04A` |
-| 5 | 🟦 `#085293` | 🟨 `#FDCA42` |
-| 6 | ⬜ `#FFFFFF` | ⬛ `#000000` |
-| 7 | ⬛ `#000000` | ⬜ `#FFFFFF` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#47B386;color:#2C3850;font-weight:600">Aa</span> `#47B386` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#47B386;color:#2C3850;font-weight:600">Aa</span> `#2C3850` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#E8D6D2;color:#FB6863;font-weight:600">Aa</span> `#E8D6D2` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#E8D6D2;color:#FB6863;font-weight:600">Aa</span> `#FB6863` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#22A6E3;color:#EDEAE3;font-weight:600">Aa</span> `#22A6E3` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#22A6E3;color:#EDEAE3;font-weight:600">Aa</span> `#EDEAE3` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#122232;color:#FEE04A;font-weight:600">Aa</span> `#122232` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#122232;color:#FEE04A;font-weight:600">Aa</span> `#FEE04A` |
+| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#085293;color:#FDCA42;font-weight:600">Aa</span> `#085293` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#085293;color:#FDCA42;font-weight:600">Aa</span> `#FDCA42` |
+| 6 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FFFFFF;color:#000000;font-weight:600">Aa</span> `#FFFFFF` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FFFFFF;color:#000000;font-weight:600">Aa</span> `#000000` |
+| 7 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#FFFFFF;font-weight:600">Aa</span> `#000000` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#FFFFFF;font-weight:600">Aa</span> `#FFFFFF` |
 
 **Serif** — `theme: serif` (4 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟫 `#f5f0eb` | ⬛ `#1a1a1a` |
-| 2 | 🟫 `#1a1a2e` | 🟫 `#e0d5c1` |
-| 3 | ⬜ `#fefefe` | 🟫 `#2c3e50` |
-| 4 | 🟫 `#0d1117` | 🟫 `#f0e6d3` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1a1a;font-weight:600">Aa</span> `#f5f0eb` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1a1a;font-weight:600">Aa</span> `#1a1a1a` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1a2e;color:#e0d5c1;font-weight:600">Aa</span> `#1a1a2e` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1a2e;color:#e0d5c1;font-weight:600">Aa</span> `#e0d5c1` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fefefe;color:#2c3e50;font-weight:600">Aa</span> `#fefefe` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fefefe;color:#2c3e50;font-weight:600">Aa</span> `#2c3e50` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#f0e6d3;font-weight:600">Aa</span> `#0d1117` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#f0e6d3;font-weight:600">Aa</span> `#f0e6d3` |
 
 **Minimal** — `theme: minimal` (4 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | ⬜ `#ffffff` | ⬛ `#111111` |
-| 2 | 🟦 `#0f172a` | ⬜ `#f1f5f9` |
-| 3 | ⬜ `#fafaf9` | ⬛ `#1c1917` |
-| 4 | 🟫 `#18181b` | ⬜ `#fafafa` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#111111` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#f1f5f9;font-weight:600">Aa</span> `#0f172a` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#f1f5f9;font-weight:600">Aa</span> `#f1f5f9` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#fafaf9` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#1c1917` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#18181b;color:#fafafa;font-weight:600">Aa</span> `#18181b` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#18181b;color:#fafafa;font-weight:600">Aa</span> `#fafafa` |
 
 **Hacker** — `theme: hacker` (4 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟫 `#0d1117` | 🟦 `#58a6ff` |
-| 2 | 🟪 `#282a36` | 🟪 `#bd93f9` |
-| 3 | 🟦 `#002b36` | 🟨 `#b58900` |
-| 4 | 🟫 `#1a1b26` | 🟦 `#7aa2f7` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#58a6ff;font-weight:600">Aa</span> `#0d1117` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#58a6ff;font-weight:600">Aa</span> `#58a6ff` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#282a36;color:#bd93f9;font-weight:600">Aa</span> `#282a36` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#282a36;color:#bd93f9;font-weight:600">Aa</span> `#bd93f9` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#002b36;color:#b58900;font-weight:600">Aa</span> `#002b36` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#002b36;color:#b58900;font-weight:600">Aa</span> `#b58900` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1b26;color:#7aa2f7;font-weight:600">Aa</span> `#1a1b26` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1b26;color:#7aa2f7;font-weight:600">Aa</span> `#7aa2f7` |
 
 **Poster** — `theme: poster` (4 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | ⬛ `#000000` | ⬜ `#ffffff` |
-| 2 | 🟪 `#1a0a2e` | 🟨 `#f0e68c` |
-| 3 | ⬜ `#ffffff` | ⬛ `#000000` |
-| 4 | 🟦 `#0a192f` | 🟩 `#64ffda` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#000000` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a0a2e;color:#f0e68c;font-weight:600">Aa</span> `#1a0a2e` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a0a2e;color:#f0e68c;font-weight:600">Aa</span> `#f0e68c` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#000000;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#000000;font-weight:600">Aa</span> `#000000` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a192f;color:#64ffda;font-weight:600">Aa</span> `#0a192f` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a192f;color:#64ffda;font-weight:600">Aa</span> `#64ffda` |
 
 **Borneli** — `theme: borneli` (5 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟫 `#ece7e2` | 🟪 `#1a1050` |
-| 2 | 🟪 `#1a1050` | 🟫 `#ece7e2` |
-| 3 | ⬜ `#ffffff` | 🟪 `#1a1050` |
-| 4 | 🟪 `#8a2080` | ⬜ `#ffffff` |
-| 5 | 🟫 `#f5f0eb` | 🟪 `#1a1050` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ece7e2;color:#1a1050;font-weight:600">Aa</span> `#ece7e2` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ece7e2;color:#1a1050;font-weight:600">Aa</span> `#1a1050` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1050;color:#ece7e2;font-weight:600">Aa</span> `#1a1050` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1050;color:#ece7e2;font-weight:600">Aa</span> `#ece7e2` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#1a1050;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#1a1050;font-weight:600">Aa</span> `#1a1050` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#8a2080;color:#ffffff;font-weight:600">Aa</span> `#8a2080` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#8a2080;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
+| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1050;font-weight:600">Aa</span> `#f5f0eb` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1050;font-weight:600">Aa</span> `#1a1050` |
 
 **Alun** — `theme: alun` (5 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | ⬛ `#0d0c0c` | 🟧 `#FF9414` |
-| 2 | ⬛ `#0d0c0c` | 🟥 `#ED1460` |
-| 3 | ⬜ `#f3f2f2` | ⬛ `#0d0c0c` |
-| 4 | 🟧 `#FF9414` | ⬛ `#0d0c0c` |
-| 5 | 🟥 `#ED1460` | ⬜ `#ffffff` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#FF9414;font-weight:600">Aa</span> `#0d0c0c` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#FF9414;font-weight:600">Aa</span> `#FF9414` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#ED1460;font-weight:600">Aa</span> `#0d0c0c` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#ED1460;font-weight:600">Aa</span> `#ED1460` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f3f2f2;color:#0d0c0c;font-weight:600">Aa</span> `#f3f2f2` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f3f2f2;color:#0d0c0c;font-weight:600">Aa</span> `#0d0c0c` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FF9414;color:#0d0c0c;font-weight:600">Aa</span> `#FF9414` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FF9414;color:#0d0c0c;font-weight:600">Aa</span> `#0d0c0c` |
+| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ED1460;color:#ffffff;font-weight:600">Aa</span> `#ED1460` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ED1460;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
 
 **Nordic** — `theme: nordic` (5 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | 🟦 `#0a1628` | ⬜ `#e2e8f0` |
-| 2 | ⬜ `#fafaf9` | ⬛ `#1c1917` |
-| 3 | 🟦 `#1e293b` | ⬜ `#f1f5f9` |
-| 4 | 🟦 `#0f172a` | 🟨 `#fbbf24` |
-| 5 | ⬜ `#ffffff` | 🟦 `#0f172a` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a1628;color:#e2e8f0;font-weight:600">Aa</span> `#0a1628` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a1628;color:#e2e8f0;font-weight:600">Aa</span> `#e2e8f0` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#fafaf9` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#1c1917` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#f1f5f9;font-weight:600">Aa</span> `#1e293b` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#f1f5f9;font-weight:600">Aa</span> `#f1f5f9` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#fbbf24;font-weight:600">Aa</span> `#0f172a` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#fbbf24;font-weight:600">Aa</span> `#fbbf24` |
+| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#0f172a;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#0f172a;font-weight:600">Aa</span> `#0f172a` |
 
 **Keynote** — `theme: keynote` (5 schemes)
 
 | # | Background | Text |
 |---|-----------|------|
-| 1 | ⬛ `#000000` | ⬜ `#ffffff` |
-| 2 | 🟫 `#111827` | ⬜ `#f9fafb` |
-| 3 | ⬜ `#ffffff` | ⬛ `#111827` |
-| 4 | 🟪 `#0c0a20` | 🟦 `#e0e7ff` |
-| 5 | 🟫 `#1c1917` | 🟨 `#fef3c7` |
+| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#000000` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
+| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#111827;color:#f9fafb;font-weight:600">Aa</span> `#111827` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#111827;color:#f9fafb;font-weight:600">Aa</span> `#f9fafb` |
+| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111827;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111827;font-weight:600">Aa</span> `#111827` |
+| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0c0a20;color:#e0e7ff;font-weight:600">Aa</span> `#0c0a20` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0c0a20;color:#e0e7ff;font-weight:600">Aa</span> `#e0e7ff` |
+| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1c1917;color:#fef3c7;font-weight:600">Aa</span> `#1c1917` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1c1917;color:#fef3c7;font-weight:600">Aa</span> `#fef3c7` |
 
 ## Try it
 
