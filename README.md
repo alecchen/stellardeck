@@ -32,101 +32,101 @@ stellardeck --html --theme hacker --scheme 1 deck.md
 
 Set via frontmatter `theme: <name>, <scheme>` or CLI `--theme <name> --scheme <n>`.
 
-**Default** — `theme: default` (3 schemes)
+**Default (Inter)** — `theme: default` (3 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a0a0a;color:#f8fafc;font-weight:600">Aa</span> `#0a0a0a` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a0a0a;color:#f8fafc;font-weight:600">Aa</span> `#f8fafc` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#111111` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#e2e8f0;font-weight:600">Aa</span> `#1e293b` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#e2e8f0;font-weight:600">Aa</span> `#e2e8f0` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-f8fafc-0a0a0a?style=flat-square) | `#0a0a0a` | `#f8fafc` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-111111-ffffff?style=flat-square) | `#ffffff` | `#111111` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-e2e8f0-1e293b?style=flat-square) | `#1e293b` | `#e2e8f0` |
 
 **Letters from Brazil** — `theme: letters-from-brazil` (7 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#47B386;color:#2C3850;font-weight:600">Aa</span> `#47B386` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#47B386;color:#2C3850;font-weight:600">Aa</span> `#2C3850` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#E8D6D2;color:#FB6863;font-weight:600">Aa</span> `#E8D6D2` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#E8D6D2;color:#FB6863;font-weight:600">Aa</span> `#FB6863` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#22A6E3;color:#EDEAE3;font-weight:600">Aa</span> `#22A6E3` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#22A6E3;color:#EDEAE3;font-weight:600">Aa</span> `#EDEAE3` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#122232;color:#FEE04A;font-weight:600">Aa</span> `#122232` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#122232;color:#FEE04A;font-weight:600">Aa</span> `#FEE04A` |
-| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#085293;color:#FDCA42;font-weight:600">Aa</span> `#085293` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#085293;color:#FDCA42;font-weight:600">Aa</span> `#FDCA42` |
-| 6 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FFFFFF;color:#000000;font-weight:600">Aa</span> `#FFFFFF` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FFFFFF;color:#000000;font-weight:600">Aa</span> `#000000` |
-| 7 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#FFFFFF;font-weight:600">Aa</span> `#000000` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#FFFFFF;font-weight:600">Aa</span> `#FFFFFF` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-2C3850-47B386?style=flat-square) | `#47B386` | `#2C3850` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-FB6863-E8D6D2?style=flat-square) | `#E8D6D2` | `#FB6863` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-EDEAE3-22A6E3?style=flat-square) | `#22A6E3` | `#EDEAE3` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-FEE04A-122232?style=flat-square) | `#122232` | `#FEE04A` |
+| 5 | ![Aa](https://img.shields.io/badge/Aa-FDCA42-085293?style=flat-square) | `#085293` | `#FDCA42` |
+| 6 | ![Aa](https://img.shields.io/badge/Aa-000000-FFFFFF?style=flat-square) | `#FFFFFF` | `#000000` |
+| 7 | ![Aa](https://img.shields.io/badge/Aa-FFFFFF-000000?style=flat-square) | `#000000` | `#FFFFFF` |
 
 **Serif** — `theme: serif` (4 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1a1a;font-weight:600">Aa</span> `#f5f0eb` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1a1a;font-weight:600">Aa</span> `#1a1a1a` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1a2e;color:#e0d5c1;font-weight:600">Aa</span> `#1a1a2e` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1a2e;color:#e0d5c1;font-weight:600">Aa</span> `#e0d5c1` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fefefe;color:#2c3e50;font-weight:600">Aa</span> `#fefefe` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fefefe;color:#2c3e50;font-weight:600">Aa</span> `#2c3e50` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#f0e6d3;font-weight:600">Aa</span> `#0d1117` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#f0e6d3;font-weight:600">Aa</span> `#f0e6d3` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-1a1a1a-f5f0eb?style=flat-square) | `#f5f0eb` | `#1a1a1a` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-e0d5c1-1a1a2e?style=flat-square) | `#1a1a2e` | `#e0d5c1` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-2c3e50-fefefe?style=flat-square) | `#fefefe` | `#2c3e50` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-f0e6d3-0d1117?style=flat-square) | `#0d1117` | `#f0e6d3` |
 
 **Minimal** — `theme: minimal` (4 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111111;font-weight:600">Aa</span> `#111111` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#f1f5f9;font-weight:600">Aa</span> `#0f172a` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#f1f5f9;font-weight:600">Aa</span> `#f1f5f9` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#fafaf9` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#1c1917` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#18181b;color:#fafafa;font-weight:600">Aa</span> `#18181b` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#18181b;color:#fafafa;font-weight:600">Aa</span> `#fafafa` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-111111-ffffff?style=flat-square) | `#ffffff` | `#111111` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-f1f5f9-0f172a?style=flat-square) | `#0f172a` | `#f1f5f9` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-1c1917-fafaf9?style=flat-square) | `#fafaf9` | `#1c1917` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-fafafa-18181b?style=flat-square) | `#18181b` | `#fafafa` |
 
 **Hacker** — `theme: hacker` (4 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#58a6ff;font-weight:600">Aa</span> `#0d1117` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d1117;color:#58a6ff;font-weight:600">Aa</span> `#58a6ff` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#282a36;color:#bd93f9;font-weight:600">Aa</span> `#282a36` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#282a36;color:#bd93f9;font-weight:600">Aa</span> `#bd93f9` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#002b36;color:#b58900;font-weight:600">Aa</span> `#002b36` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#002b36;color:#b58900;font-weight:600">Aa</span> `#b58900` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1b26;color:#7aa2f7;font-weight:600">Aa</span> `#1a1b26` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1b26;color:#7aa2f7;font-weight:600">Aa</span> `#7aa2f7` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-58a6ff-0d1117?style=flat-square) | `#0d1117` | `#58a6ff` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-bd93f9-282a36?style=flat-square) | `#282a36` | `#bd93f9` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-b58900-002b36?style=flat-square) | `#002b36` | `#b58900` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-7aa2f7-1a1b26?style=flat-square) | `#1a1b26` | `#7aa2f7` |
 
 **Poster** — `theme: poster` (4 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#000000` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a0a2e;color:#f0e68c;font-weight:600">Aa</span> `#1a0a2e` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a0a2e;color:#f0e68c;font-weight:600">Aa</span> `#f0e68c` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#000000;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#000000;font-weight:600">Aa</span> `#000000` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a192f;color:#64ffda;font-weight:600">Aa</span> `#0a192f` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a192f;color:#64ffda;font-weight:600">Aa</span> `#64ffda` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-ffffff-000000?style=flat-square) | `#000000` | `#ffffff` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-f0e68c-1a0a2e?style=flat-square) | `#1a0a2e` | `#f0e68c` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-000000-ffffff?style=flat-square) | `#ffffff` | `#000000` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-64ffda-0a192f?style=flat-square) | `#0a192f` | `#64ffda` |
 
 **Borneli** — `theme: borneli` (5 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ece7e2;color:#1a1050;font-weight:600">Aa</span> `#ece7e2` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ece7e2;color:#1a1050;font-weight:600">Aa</span> `#1a1050` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1050;color:#ece7e2;font-weight:600">Aa</span> `#1a1050` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1a1050;color:#ece7e2;font-weight:600">Aa</span> `#ece7e2` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#1a1050;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#1a1050;font-weight:600">Aa</span> `#1a1050` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#8a2080;color:#ffffff;font-weight:600">Aa</span> `#8a2080` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#8a2080;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
-| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1050;font-weight:600">Aa</span> `#f5f0eb` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f5f0eb;color:#1a1050;font-weight:600">Aa</span> `#1a1050` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-1a1050-ece7e2?style=flat-square) | `#ece7e2` | `#1a1050` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-ece7e2-1a1050?style=flat-square) | `#1a1050` | `#ece7e2` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-1a1050-ffffff?style=flat-square) | `#ffffff` | `#1a1050` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-ffffff-8a2080?style=flat-square) | `#8a2080` | `#ffffff` |
+| 5 | ![Aa](https://img.shields.io/badge/Aa-1a1050-f5f0eb?style=flat-square) | `#f5f0eb` | `#1a1050` |
 
 **Alun** — `theme: alun` (5 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#FF9414;font-weight:600">Aa</span> `#0d0c0c` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#FF9414;font-weight:600">Aa</span> `#FF9414` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#ED1460;font-weight:600">Aa</span> `#0d0c0c` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0d0c0c;color:#ED1460;font-weight:600">Aa</span> `#ED1460` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f3f2f2;color:#0d0c0c;font-weight:600">Aa</span> `#f3f2f2` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#f3f2f2;color:#0d0c0c;font-weight:600">Aa</span> `#0d0c0c` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FF9414;color:#0d0c0c;font-weight:600">Aa</span> `#FF9414` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#FF9414;color:#0d0c0c;font-weight:600">Aa</span> `#0d0c0c` |
-| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ED1460;color:#ffffff;font-weight:600">Aa</span> `#ED1460` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ED1460;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-FF9414-0d0c0c?style=flat-square) | `#0d0c0c` | `#FF9414` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-ED1460-0d0c0c?style=flat-square) | `#0d0c0c` | `#ED1460` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-0d0c0c-f3f2f2?style=flat-square) | `#f3f2f2` | `#0d0c0c` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-0d0c0c-FF9414?style=flat-square) | `#FF9414` | `#0d0c0c` |
+| 5 | ![Aa](https://img.shields.io/badge/Aa-ffffff-ED1460?style=flat-square) | `#ED1460` | `#ffffff` |
 
 **Nordic** — `theme: nordic` (5 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a1628;color:#e2e8f0;font-weight:600">Aa</span> `#0a1628` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0a1628;color:#e2e8f0;font-weight:600">Aa</span> `#e2e8f0` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#fafaf9` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#fafaf9;color:#1c1917;font-weight:600">Aa</span> `#1c1917` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#f1f5f9;font-weight:600">Aa</span> `#1e293b` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1e293b;color:#f1f5f9;font-weight:600">Aa</span> `#f1f5f9` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#fbbf24;font-weight:600">Aa</span> `#0f172a` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0f172a;color:#fbbf24;font-weight:600">Aa</span> `#fbbf24` |
-| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#0f172a;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#0f172a;font-weight:600">Aa</span> `#0f172a` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-e2e8f0-0a1628?style=flat-square) | `#0a1628` | `#e2e8f0` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-1c1917-fafaf9?style=flat-square) | `#fafaf9` | `#1c1917` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-f1f5f9-1e293b?style=flat-square) | `#1e293b` | `#f1f5f9` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-fbbf24-0f172a?style=flat-square) | `#0f172a` | `#fbbf24` |
+| 5 | ![Aa](https://img.shields.io/badge/Aa-0f172a-ffffff?style=flat-square) | `#ffffff` | `#0f172a` |
 
 **Keynote** — `theme: keynote` (5 schemes)
 
-| # | Background | Text |
-|---|-----------|------|
-| 1 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#000000` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#000000;color:#ffffff;font-weight:600">Aa</span> `#ffffff` |
-| 2 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#111827;color:#f9fafb;font-weight:600">Aa</span> `#111827` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#111827;color:#f9fafb;font-weight:600">Aa</span> `#f9fafb` |
-| 3 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111827;font-weight:600">Aa</span> `#ffffff` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#ffffff;color:#111827;font-weight:600">Aa</span> `#111827` |
-| 4 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0c0a20;color:#e0e7ff;font-weight:600">Aa</span> `#0c0a20` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#0c0a20;color:#e0e7ff;font-weight:600">Aa</span> `#e0e7ff` |
-| 5 | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1c1917;color:#fef3c7;font-weight:600">Aa</span> `#1c1917` | <span style="display:inline-block;padding:2px 7px;border-radius:4px;background:#1c1917;color:#fef3c7;font-weight:600">Aa</span> `#fef3c7` |
+| # | Preview | Background | Text |
+|---|---------|-----------|------|
+| 1 | ![Aa](https://img.shields.io/badge/Aa-ffffff-000000?style=flat-square) | `#000000` | `#ffffff` |
+| 2 | ![Aa](https://img.shields.io/badge/Aa-f9fafb-111827?style=flat-square) | `#111827` | `#f9fafb` |
+| 3 | ![Aa](https://img.shields.io/badge/Aa-111827-ffffff?style=flat-square) | `#ffffff` | `#111827` |
+| 4 | ![Aa](https://img.shields.io/badge/Aa-e0e7ff-0c0a20?style=flat-square) | `#0c0a20` | `#e0e7ff` |
+| 5 | ![Aa](https://img.shields.io/badge/Aa-fef3c7-1c1917?style=flat-square) | `#1c1917` | `#fef3c7` |
 
 ## Try it
 
